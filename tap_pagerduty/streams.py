@@ -188,6 +188,8 @@ class IncidentsStream(PagerdutyStream):
         until_dtime = datetime.strptime(self.params.get("until"), '%Y-%m-%dT%H:%M:%SZ')
         request_range_limit = timedelta(days=179)
 
+        self.params["include[]"] = "body"
+        
         running_bookmark_dtime = None
         with singer.metrics.job_timer(job_type=f"list_{self.tap_stream_id}"):
             with singer.metrics.record_counter(endpoint=self.tap_stream_id) as counter:
