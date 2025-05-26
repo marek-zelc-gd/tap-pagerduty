@@ -11,6 +11,9 @@
     "summary": {
       "type": ["null", "string"]
     },
+    "body": {
+      "type": ["null", "string"]
+    },
     "self": {
       "type": ["null", "string"]
     },
