@@ -184,7 +184,7 @@ class IncidentsStream(PagerdutyStream):
         else:
             current_bookmark_dtime = None
 
-        since_dtime = datetime.strptime(self.params.get("since"), '%Y-%m-%dT%H:%M:%SZ')
+        since_dtime = datetime.utcnow() - timedelta(days=5)
         until_dtime = datetime.strptime(self.params.get("until"), '%Y-%m-%dT%H:%M:%SZ')
         request_range_limit = timedelta(days=179)
 
